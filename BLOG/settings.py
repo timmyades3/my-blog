@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'BLOG.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-   # 'default': {
-   #     'ENGINE': 'django.db.backends.sqlite3',
-   #     'NAME': BASE_DIR / 'db.sqlite3',
-   # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -138,12 +138,13 @@ LOGIN_REDIRECT_URL = 'blog-home'
 
 LOGIN_URL = 'login'
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = os.environ.get('MYBLOG_SENDGRID_HOST_USER') # this is exactly the value 'apikey'
+# this is exactly the value 'apikey'
+EMAIL_HOST_USER = os.environ.get('MYBLOG_SENDGRID_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('MYBLOG_SENDGRID_APIKEY')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL ='timileyinadesina1@gmail.com'
+DEFAULT_FROM_EMAIL = 'timileyinadesina1@gmail.com'
 
 AWS_ACCESS_KEY_ID = os.environ.get('MYBLOG_AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('MYBLOG_AWS_SECRET_ACCESS_KEY')
