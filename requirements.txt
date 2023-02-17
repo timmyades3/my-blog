@@ -24,7 +24,6 @@ jmespath==1.0.1
 oauthlib==3.2.0
 Pillow==9.2.0
 platformdirs==2.5.2
-
 pycodestyle==2.8.0
 pycparser==2.21
 PyJWT==2.4.0
