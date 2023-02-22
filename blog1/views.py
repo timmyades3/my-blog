@@ -92,9 +92,11 @@ def about(request):
     AWS_STORAGE_BUCKET_NAME = os.environ.get('MYBLOG_AWS_STORAGE_BUCKET_NAME')
     AWS_SECRET_ACCESS_KEY = os.environ.get('MYBLOG_AWS_SECRET_ACCESS_KEY')
     AWS_ACCESS_KEY_ID = os.environ.get('MYBLOG_AWS_ACCESS_KEY_ID')
+    SECRET_KEY = os.environ.get('MYBLOG_SECRET_KEY')
 
     context = { AWS_STORAGE_BUCKET_NAME :'bucket_name',
                 AWS_SECRET_ACCESS_KEY :'secret_key',
-                AWS_ACCESS_KEY_ID : 'key_id'
+                AWS_ACCESS_KEY_ID : 'key_id',
+                SECRET_KEY : 'django_secret_key'
                }
     return render(request, 'blog1/about.html', context)
