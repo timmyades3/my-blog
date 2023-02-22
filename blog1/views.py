@@ -89,10 +89,10 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 def about(request):
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('MYBLOG_AWS_STORAGE_BUCKET_NAME')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('MYBLOG_AWS_SECRET_ACCESS_KEY')
-    AWS_ACCESS_KEY_ID = os.environ.get('MYBLOG_AWS_ACCESS_KEY_ID')
-    SECRET_KEY = os.environ.get('MYBLOG_SECRET_KEY')
+    AWS_STORAGE_BUCKET_NAME = print(os.environ.get('MYBLOG_AWS_STORAGE_BUCKET_NAME'))
+    AWS_SECRET_ACCESS_KEY = print(os.environ.get('MYBLOG_AWS_SECRET_ACCESS_KEY'))
+    AWS_ACCESS_KEY_ID = print(os.environ.get('MYBLOG_AWS_ACCESS_KEY_ID'))
+    SECRET_KEY = print(os.environ.get('MYBLOG_SECRET_KEY'))
 
     context = { AWS_STORAGE_BUCKET_NAME :'bucket_name',
                 AWS_SECRET_ACCESS_KEY :'secret_key',
