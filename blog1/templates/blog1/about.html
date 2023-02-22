@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>About page</h1>   
-    <p>{{ bucket_name }} is the bucket name</p>
-    <p>{{ secret_key }} is the secret key</p>
-    <p>{{ key_id }} is the key id </p>
-    <p>{{ django_secret_key }} is the django secret key</p>
+<h1>About page</h1>
+<p> the bucket name</p>
+<p>{{ AWS_STORAGE_BUCKET_NAME }} </p>
+<p> the secret key</p>
+<p>{{ AWS_SECRET_ACCESS_KEY }} </p>
+<p> the key id</p>
+<p>{{ AWS_ACCESS_KEY_ID }} </p>
+<p> the django secret key</p>
+<p>{{ SECRET_KEY }} </p>
 
 {% endblock content %}
