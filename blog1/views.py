@@ -10,6 +10,7 @@ from django.views.generic import (
 )
 from .models import Post
 from django.contrib.auth.models import User
+import os
 
 
 # Dummy Data
@@ -88,4 +89,12 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 def about(request):
-    return render(request, 'blog1/about.html')
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('MYBLOG_AWS_STORAGE_BUCKET_NAME')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('MYBLOG_AWS_SECRET_ACCESS_KEY')
+    AWS_ACCESS_KEY_ID = os.environ.get('MYBLOG_AWS_ACCESS_KEY_ID')
+
+    context = { AWS_STORAGE_BUCKET_NAME :'bucket_name',
+                AWS_SECRET_ACCESS_KEY :'secret_key',
+                AWS_ACCESS_KEY_ID : 'key_id'
+               }
+    return render(request, 'blog1/about.html', context)
