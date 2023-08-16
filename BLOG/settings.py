@@ -80,18 +80,18 @@ WSGI_APPLICATION = 'BLOG.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-    #   'NAME': BASE_DIR / 'db.sqlite3',
-    #  }
-   'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('PGDATABASE'),
-        'USER': os.environ.get('PGUSER'),
-        'PASSWORD': os.environ.get('PGPASSWORD'),
-        'HOST': os.environ.get('PGHOST'),
-        'PORT': '5432',
-    }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+      }
+   #'default': {
+   #     'ENGINE': 'django.db.backends.postgresql',
+   #     'NAME': os.environ.get('PGDATABASE'),
+   #     'USER': os.environ.get('PGUSER'),
+   #     'PASSWORD': os.environ.get('PGPASSWORD'),
+   #     'HOST': os.environ.get('PGHOST'),
+   #     'PORT': '5432',
+   # }
 }
 
 
@@ -158,12 +158,14 @@ EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = 'timileyinadesina1@gmail.com'
 
+
+
 AWS_ACCESS_KEY_ID = os.environ.get('MYBLOG_AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('MYBLOG_AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('MYBLOG_AWS_STORAGE_BUCKET_NAME')
 AWS_DEFAULT_REGION = os.environ.get('MYBLOG_AWS_DEFAULT_REGION')
-
-
+AWS_S3_SIGNATURE_NAME = 's3v4',
 AWS_S3_FILE_OVERWRITE = False
-
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
