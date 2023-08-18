@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('MYBLOG_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("debug","False") == "True"
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh','127.0.0.1','34.229.191.185','.onrender.com']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh','127.0.0.1','34.229.191.185','my-blog-3xqx.onrender.com']
 
 
 # Application definition
