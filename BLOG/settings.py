@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = os.environ.get('MYBLOG_SECRET_KEY')
-SECRET_KEY = 'django-insecure-0wx-42ei7ln0t5#0v*1-_@me6-=eah@a$l5drp1px2wq2g-h=)'
+SECRET_KEY = os.environ.get('MYBLOG_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("debug","False") == "True"
 
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh','127.0.0.1','34.229.191.185']
 
@@ -96,7 +96,8 @@ DATABASES = {
    # }
 }
 
-DATABASES["default"] = dj_database_url.parse("postgres://my_blog_gj6r_user:FWEQd2E25U08WxcZYX3zmxV04Jrw3WkI@dpg-cjfnvm2nip6c73fshutg-a.oregon-postgres.render.com/my_blog_gj6r")
+database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url)
 
 
 
