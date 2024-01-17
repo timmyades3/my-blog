@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
-import dj_database_url
+# import dj_database_url
 import whitenoise
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,26 +87,19 @@ WSGI_APPLICATION = 'BLOG.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-     #   'ENGINE': 'django.db.backends.postgresql',
-     #   'NAME': config('PGDATABASE'),
-     #   'USER': config('PGUSER'),
-     #  'PASSWORD': config('PGPASSWORD'),
-     #   'HOST': config('PGHOST'),
-     #   'PORT': '5432',
-    #}
+    'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': config('PGDATABASE'),
+       'USER': config('PGUSER'),
+      'PASSWORD': config('PGPASSWORD'),
+       'HOST': config('PGHOST'),
+       'PORT': '5432',
+    }
     #'default': {
     #    'ENGINE': 'django.db.backends.sqlite3',
     #   'NAME': BASE_DIR / 'db.sqlite3',
     #  }
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': os.environ.get('PGDATABASE'),
-       'USER': os.environ.get('PGUSER'),
-       'PASSWORD': os.environ.get('PGPASSWORD'),
-       'HOST': os.environ.get('PGHOST'),
-       'PORT': '5432',
-   }
+
 }
 
 #database_url = os.environ.get("DATABASE_URL")
